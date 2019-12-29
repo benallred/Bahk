@@ -7,3 +7,12 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Notes
 ;; #=Win; ^=Ctrl; +=Shift; !=Alt
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Script Startup
+
+if not A_IsAdmin
+{
+    Run *RunAs "%A_ScriptFullPath%" /restart
+    ExitApp
+}
