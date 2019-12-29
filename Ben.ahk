@@ -24,3 +24,34 @@ if not A_IsAdmin
 
 Menu, Tray, Icon, Bahk.ico, , 1
 TrayTip, % programTitle, Loaded
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Script Shortcuts
+
+#^+e::Edit
+
+#^+r::
+    Reload
+    Sleep 1000
+    SoundPlay *16
+    TrayTip, % programTitle, Failed to reload, , 16
+    return
+
+#^+s::
+    Suspend, Toggle
+    if A_IsSuspended = 1
+    {
+        Menu, Tray, Icon, Bahk-Suspend.ico, , 1
+        TrayTip, % programTitle, Suspended
+    }
+    else
+    {
+        Menu, Tray, Icon, Bahk.ico, , 1
+        TrayTip, % programTitle, Resumed
+    }
+    return
+
+#^+h::
+    SplitPath, A_AhkPath, , ahkLocation
+    Run "%ahkLocation%\AutoHotkey.chm"
+    return
