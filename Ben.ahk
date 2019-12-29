@@ -9,6 +9,11 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory
 ;; #=Win; ^=Ctrl; +=Shift; !=Alt
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Constants
+
+programTitle = Bahk
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Script Startup
 
 if not A_IsAdmin
@@ -16,3 +21,6 @@ if not A_IsAdmin
     Run *RunAs "%A_ScriptFullPath%" /restart
     ExitApp
 }
+
+Menu, Tray, Icon, Bahk.ico, , 1
+TrayTip, % programTitle, Loaded
