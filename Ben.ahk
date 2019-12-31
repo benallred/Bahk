@@ -14,11 +14,16 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory
 programTitle = Bahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Environment Variables
+
+EnvGet, LocalAppData, LocalAppData
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Script Startup
 
 if not A_IsAdmin
 {
-    Run *RunAs "%A_ScriptFullPath%" /restart
+    Run, *RunAs "%A_ScriptFullPath%" /restart
     ExitApp
 }
 
@@ -32,8 +37,8 @@ TrayTip, % programTitle, Loaded
 
 #^+r::
     Reload
-    Sleep 1000
-    SoundPlay *16
+    Sleep, 1000
+    SoundPlay, *16
     TrayTip, % programTitle, Failed to reload, , 16
     return
 
@@ -53,7 +58,7 @@ TrayTip, % programTitle, Loaded
 
 #^+h::
     SplitPath, A_AhkPath, , ahkLocation
-    Run "%ahkLocation%\AutoHotkey.chm"
+    Run, "%ahkLocation%\AutoHotkey.chm"
     return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -67,3 +72,8 @@ TrayTip, % programTitle, Loaded
     Clipboard := clipboardOrig
     clipboardOrig = ; free memory in case clipboard was large
     return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Programs
+
+#m::Run, "%LocalAppData%\authy-electron\Authy Desktop.exe"
