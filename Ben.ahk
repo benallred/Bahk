@@ -55,3 +55,15 @@ TrayTip, % programTitle, Loaded
     SplitPath, A_AhkPath, , ahkLocation
     Run "%ahkLocation%\AutoHotkey.chm"
     return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; General Shortcuts
+
+#^v::
+    clipboardOrig := ClipboardAll
+    Clipboard := Trim(Clipboard)
+    Send, ^v
+    Sleep, 500 ; clipboardOrig can be copied back before ^v happens
+    Clipboard := clipboardOrig
+    clipboardOrig = ; free memory in case clipboard was large
+    return
