@@ -73,6 +73,29 @@ TrayTip, % programTitle, Loaded
     clipboardOrig = ; free memory in case clipboard was large
     return
 
+#d::
+    Input chordKey, L1 M T1
+    if chordKey = t
+    {
+        FormatTime, dateString, %A_Now%, yyyy-MM-dd HH:mm:ss
+        Send, % dateString
+    }
+    else
+    {
+        date = %A_Now%
+        if (chordKey = "=" || chordKey = "+" || chordKey = "-")
+        {
+            Input chordKey2, L1 M T1
+            if (chordKey2 >= 1 && chordKey2 <= 9)
+            {
+                date += chordKey2 * (chordKey = "-" ? -1 : 1), days
+            }
+        }
+        FormatTime, dateString, %date%, yyyy-MM-dd, dddd
+        Send, % dateString
+    }
+    return
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Programs
 
