@@ -3,6 +3,7 @@
 #SingleInstance Ignore ; Skips the dialog box and leaves the old instance running
 SendMode Input ; Recommended for new scripts due to its superior speed and reliability
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory
+#Include %A_ScriptDir% ; Change the working directory used by all subsequent occurrences of #Include and FileInstall. SetWorkingDir has no effect on #Include because #Include is processed before the script begins executing.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Notes
@@ -29,6 +30,8 @@ if not A_IsAdmin
 
 Menu, Tray, Icon, Bahk.ico, , 1
 TrayTip, % programTitle, Loaded
+
+#Include Autofill.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Script Shortcuts
