@@ -28,6 +28,12 @@ if not A_IsAdmin
     ExitApp
 }
 
+startupLinkFile := A_Startup "\" programTitle ".lnk"
+IfNotExist, % startupLinkFile
+{
+    FileCreateShortcut, % A_ScriptFullPath, % startupLinkFile, % A_ScriptDir, , , % A_ScriptDir "\" programTitle ".ico"
+}
+
 Menu, Tray, Icon, Bahk.ico, , 1
 TrayTip, % programTitle, Loaded
 
