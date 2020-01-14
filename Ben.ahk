@@ -33,6 +33,7 @@ TrayTip, % programTitle, Loaded
 
 #Include Autofill.ahk
 #Include Guid.ahk
+#Include WindowManipulation.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Script Shortcuts
