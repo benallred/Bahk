@@ -38,6 +38,7 @@ Menu, Tray, Icon, Bahk.ico, , 1
 TrayTip, % programTitle, Loaded
 
 #Include Autofill.ahk
+#Include CopyPaste.ahk
 #Include Guid.ahk
 #Include WindowManipulation.ahk
 
@@ -74,15 +75,6 @@ TrayTip, % programTitle, Loaded
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General Shortcuts
-
-#^v::
-    clipboardOrig := ClipboardAll
-    Clipboard := Trim(Clipboard)
-    Send, ^v
-    Sleep, 500 ; clipboardOrig can be copied back before ^v happens
-    Clipboard := clipboardOrig
-    clipboardOrig = ; free memory in case clipboard was large
-    return
 
 #d::
     Input chordKey, L1 M T1
