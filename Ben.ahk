@@ -37,10 +37,10 @@ IfNotExist, % startupLinkFile
 Menu, Tray, Icon, Bahk.ico, , 1
 TrayTip, % programTitle, Loaded
 
-#Include Autofill.ahk
-#Include CopyPaste.ahk
-#Include Guid.ahk
-#Include WindowManipulation.ahk
+#Include Modules\Autofill.ahk
+#Include Modules\CopyPaste.ahk
+#Include Modules\Guid.ahk
+#Include Modules\WindowManipulation.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Script Shortcuts
