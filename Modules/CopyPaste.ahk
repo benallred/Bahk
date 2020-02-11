@@ -1,9 +1,11 @@
+#IfWinNotActive ahk_exe msedge.exe
 ^+c::
     Clipboard :=
     Send, ^c
     ClipWait
     Clipboard := Clipboard ; get clipboard as text
     return
+#If
 
 ^+v::
     clipboardOrig := ClipboardAll
