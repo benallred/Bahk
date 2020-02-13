@@ -103,3 +103,7 @@ TrayTip, % programTitle, Loaded
 ;; Programs
 
 #m::Run, "%LocalAppData%\authy-electron\Authy Desktop.exe"
+
+#IfWinActive Microsoft Store
+XButton1::Send, !{Left}
+#If
