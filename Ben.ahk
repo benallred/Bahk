@@ -104,6 +104,15 @@ TrayTip, % programTitle, Loaded
 
 #m::Run, "%LocalAppData%\authy-electron\Authy Desktop.exe"
 
+#IfWinActive ahk_exe Authy Desktop.exe
+^c::
+    CoordMode, Mouse, Client
+    MouseGetPos, savedX, savedY
+    Click, 350, 500
+    Click, %savedX%, %savedY%, 0
+    return
+#If
+
 #IfWinActive Microsoft Store
 XButton1::Send, !{Left}
 #If
