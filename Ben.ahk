@@ -116,3 +116,29 @@ TrayTip, % programTitle, Loaded
 #IfWinActive Microsoft Store
 XButton1::Send, !{Left}
 #If
+
+#^+w::
+    ; https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
+    WS_EX_NOREDIRECTIONBITMAP := 0x00200000
+    WS_EX_TOOLWINDOW := 0x00000080
+
+    WinGet, hwnd, List
+    windowCount := hwnd
+    MsgBox, % windowCount
+    allWindows := "All windows`n"
+    Loop, % windowCount
+    {
+        currentHwnd := hwnd%A_Index%
+        WinGetClass, windowClass, ahk_id %currentHwnd%
+        WinGetTitle, title, ahk_id %currentHwnd%
+        WinGet, windowStyle, Style, ahk_id %currentHwnd%
+        WinGet, windowStyleEx, ExStyle, ahk_id %currentHwnd%
+        ; if windowClass not in Progman
+        ; if (title != "")
+        if (!(windowStyleEx & WS_EX_NOREDIRECTIONBITMAP || windowStyleEx & WS_EX_TOOLWINDOW))
+        {
+            allWindows .= A_Index " = " currentHwnd "|" title "|" windowClass "|" windowStyle "|" windowStyleEx "`n"
+        }
+    }
+    MsgBox, % allWindows
+    return
