@@ -40,6 +40,7 @@ TrayTip, % programTitle, Loaded
 #Include Modules\Autofill.ahk
 #Include Modules\CopyPaste.ahk
 #Include Modules\Guid.ahk
+#Include Modules\Navigation.ahk
 #Include Modules\WindowManipulation.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
