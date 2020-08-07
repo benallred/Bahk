@@ -116,3 +116,56 @@ TrayTip, % programTitle, Loaded
 #IfWinActive Microsoft Store
 XButton1::Send, !{Left}
 #If
+
+#IfWinActive ahk_exe slack.exe
+^+!k::
+    ; hoverAndScrollbarColor := "0x7D8082"
+    hoverAndScrollbarColor := "0x7D7E81"
+    ; scrollbarColor := "0x797C7E"
+    scrollbarColor := "0x797A7D"
+    backgroundColor := "0x1A1D21"
+    currentColor := 000000
+    MouseGetPos, savedX, savedY
+    xOffset := -1
+    yOffset := 1
+    while (currentColor != hoverAndScrollbarColor)
+    {
+        xOffset++
+        ; xOffset += 9
+        PixelGetColor, currentColor, % savedX + xOffset, % savedY, RGB
+        ; SplashTextOn, 200, 100, Test, % xOffset " " yOffset " " currentColor
+        ; Sleep, 100
+        ; SplashTextOff
+    }
+    while (currentColor != scrollbarColor)
+    {
+        yOffset--
+        ; yOffset -= 9
+        PixelGetColor, currentColor, % savedX + xOffset, % savedY + yOffset, RGB
+        ; SplashTextOn, 200, 100, Test, % xOffset " " yOffset " " currentColor
+        ; Sleep, 100
+        ; SplashTextOff
+    }
+    xOffset -= 20
+    ; MouseMove, % savedX + xOffset, % savedY + yOffset
+    messageMenuX := savedX + xOffset
+    messageMenuY := savedY + yOffset
+    TrayTip, , % messageMenuX " " messageMenuY
+    Click, %messageMenuX%, %messageMenuY%
+    xOffset += 20
+    while (currentColor != backgroundColor)
+    {
+        yOffset--
+        ; yOffset -= 10
+        PixelGetColor, currentColor, % savedX + xOffset, % savedY + yOffset, RGB
+        ; SplashTextOn, 200, 100, Test, % xOffset " " yOffset " " currentColor
+        ; Sleep, 100
+        ; SplashTextOff
+    }
+    yOffset += 20
+    followItemX := savedX + xOffset
+    followItemY := savedY + yOffset
+    Click, %followItemX%, %followItemY%
+    return
+#If
+
