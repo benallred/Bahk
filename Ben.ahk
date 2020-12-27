@@ -78,10 +78,21 @@ TrayTip, % programTitle, Loaded
 
 #d::
     Input chordKey, L1 M T1
-    if chordKey = t
+    if chordKey = f ; "file"
+    {
+        Input chordKey, L1 M T1
+        if chordKey = p ; "prefix"
+        {
+            FormatTime, dateString, %A_Now%, yyyyMMdd
+        }
+        else
+        {
+            FormatTime, dateString, %A_Now%, yyyy-MM-dd HH_mm_ss
+        }
+    }
+    else if chordKey = t ; "time"
     {
         FormatTime, dateString, %A_Now%, yyyy-MM-dd HH:mm:ss
-        Send, % dateString
     }
     else
     {
@@ -95,8 +106,8 @@ TrayTip, % programTitle, Loaded
             }
         }
         FormatTime, dateString, %date%, yyyy-MM-dd, dddd
-        Send, % dateString
     }
+    Send, % dateString
     return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
