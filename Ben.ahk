@@ -113,7 +113,7 @@ TrayTip, % programTitle, Loaded
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Programs
 
-#m::Run, "%LocalAppData%\authy-electron\Authy Desktop.exe"
+#m::Run, "%LocalAppData%\authy\Authy Desktop.exe"
 
 #IfWinActive ahk_exe Authy Desktop.exe
 ^c::
