@@ -27,12 +27,17 @@ $#a::
     }
     return
 
+GetAutofillFilePath()
+{
+    EnvGet, OneDrive, OneDrive
+    return OneDrive "\." A_ScriptName ".autofills"
+}
+
 LoadAutofills()
 {
     local
-    EnvGet, UserProfile, UserProfile
     autofills := {}
-    Loop, Read, %UserProfile%\.%A_ScriptName%.autofills
+    Loop, Read, % GetAutofillFilePath()
     {
         keyValuePair := StrSplit(A_LoopReadLine, "=")
         key := keyValuePair[1]
@@ -55,10 +60,9 @@ LoadAutofills()
 SaveAutofills(autofills, currentPath = "")
 {
     local
-    EnvGet, UserProfile, UserProfile
     if (autofills.default)
     {
-        FileAppend, % currentPath "=" autofills.default "`n", %UserProfile%\.%A_ScriptName%.autofills
+        FileAppend, % currentPath "=" autofills.default "`n", % GetAutofillFilePath()
     }
     For key, value in autofills
     {
