@@ -124,6 +124,10 @@ TrayTip, % programTitle, Loaded
     return
 #If
 
+#IfWinActive ahk_exe Discord.exe
+!F4::WinClose
+#If
+
 #IfWinActive Microsoft Store
 XButton1::Send, !{Left}
 #If
