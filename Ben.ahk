@@ -129,5 +129,10 @@ TrayTip, % programTitle, Loaded
 #If
 
 #IfWinActive Microsoft Store
-XButton1::Send, !{Left}
+XButton1::!Left
+#If
+
+#IfWinActive ahk_exe Teams.exe
+!Left::XButton1
+!Right::XButton2
 #If
