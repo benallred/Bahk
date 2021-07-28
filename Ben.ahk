@@ -4,6 +4,7 @@
 SendMode Input ; Recommended for new scripts due to its superior speed and reliability
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory
 #Include %A_ScriptDir% ; Change the working directory used by all subsequent occurrences of #Include and FileInstall. SetWorkingDir has no effect on #Include because #Include is processed before the script begins executing.
+SetTitleMatchMode 2 ; A window's title can contain WinTitle anywhere inside it to be a match
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Notes
@@ -122,6 +123,13 @@ TrayTip, % programTitle, Loaded
     Click, 350, 500
     Click, %savedX%, %savedY%, 0
     return
+#If
+
+#IfWinActive, OneNote for Windows 10
+!Up::!+Up
+!Down::!+Down
+^+PgUp::Send, ^+a!+{Up}{Esc}
+^+PgDn::Send, ^+a!+{Down}{Esc}
 #If
 
 #IfWinActive ahk_exe Discord.exe
