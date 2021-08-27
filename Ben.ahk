@@ -126,6 +126,7 @@ TrayTip, % programTitle, Loaded
 #If
 
 #IfWinActive, OneNote for Windows 10
+^+z::Send, ^y
 !Up::!+Up
 !Down::!+Down
 ^+PgUp::Send, ^+a!+{Up}{Esc}
