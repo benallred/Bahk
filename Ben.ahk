@@ -6,19 +6,12 @@ SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory
 #Include %A_ScriptDir% ; Change the working directory used by all subsequent occurrences of #Include and FileInstall. SetWorkingDir has no effect on #Include because #Include is processed before the script begins executing.
 SetTitleMatchMode 2 ; A window's title can contain WinTitle anywhere inside it to be a match
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Notes
-;; #=Win; ^=Ctrl; +=Shift; !=Alt
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Constants
-
 programTitle = Bahk
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Environment Variables
-
 EnvGet, LocalAppData, LocalAppData
+
+GroupAdd, CtrlShiftZ, OneNote for Windows 10
+GroupAdd, CtrlShiftZ, ahk_exe excel.exe
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Script Startup
@@ -116,6 +109,10 @@ TrayTip, % programTitle, Loaded
 
 #m::Run, "%LocalAppData%\authy\Authy Desktop.exe"
 
+#IfWinActive ahk_group CtrlShiftZ
+^+z::Send, ^y
+#If
+
 #IfWinActive ahk_exe Authy Desktop.exe
 ^c::
     CoordMode, Mouse, Client
@@ -126,7 +123,6 @@ TrayTip, % programTitle, Loaded
 #If
 
 #IfWinActive, OneNote for Windows 10
-^+z::Send, ^y
 !Up::!+Up
 !Down::!+Down
 ^+PgUp::Send, ^+a!+{Up}{Esc}
