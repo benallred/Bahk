@@ -121,7 +121,7 @@ TrayTip, % programTitle, Loaded
     CoordMode, Mouse, Client
     MouseGetPos, savedX, savedY
     Click, 350, 500
-    Click, %savedX%, %savedY%, 0
+    MouseMove, %savedX%, %savedY%, 0
     return
 #If
 
@@ -142,6 +142,18 @@ XButton1::!Left
 #If
 
 #IfWinActive ahk_exe Teams.exe
-!Left::XButton1
-!Right::XButton2
+!Left::
+    CoordMode, Mouse, Client
+    MouseGetPos, savedX, savedY
+    MouseMove, 0, 0, 0
+    Send, {XButton1}
+    MouseMove, %savedX%, %savedY%, 0
+    return
+!Right::
+    CoordMode, Mouse, Client
+    MouseGetPos, savedX, savedY
+    MouseMove, 0, 0, 0
+    Send, {XButton2}
+    MouseMove, %savedX%, %savedY%, 0
+    return
 #If
