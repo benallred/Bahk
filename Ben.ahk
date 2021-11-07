@@ -122,11 +122,12 @@ TrayTip, % programTitle, Loaded
     return
 #If
 
-#IfWinActive, OneNote for Windows 10
+#IfWinActive OneNote for Windows 10
 !Up::!+Up
 !Down::!+Down
 ^+PgUp::Send, ^+a!+{Up}{Esc}
 ^+PgDn::Send, ^+a!+{Down}{Esc}
+^+k::Send, {Home}+{End}+{Right}{Delete}
 #If
 
 #IfWinActive ahk_exe Discord.exe
