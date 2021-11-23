@@ -10,7 +10,7 @@ programTitle = Bahk
 
 EnvGet, LocalAppData, LocalAppData
 
-GroupAdd, CtrlShiftZ, OneNote for Windows 10
+GroupAdd, CtrlShiftZ, OneNote
 GroupAdd, CtrlShiftZ, ahk_exe excel.exe
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -122,7 +122,7 @@ TrayTip, % programTitle, Loaded
     return
 #If
 
-#IfWinActive OneNote for Windows 10
+#IfWinActive OneNote
 !Up::!+Up
 !Down::!+Down
 ^+PgUp::Send, ^+a!+{Up}{Esc}
