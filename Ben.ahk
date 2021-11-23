@@ -128,6 +128,8 @@ TrayTip, % programTitle, Loaded
 ^+PgUp::Send, ^+a!+{Up}{Esc}
 ^+PgDn::Send, ^+a!+{Down}{Esc}
 ^+k::Send, {Home}+{End}+{Right}{Delete}
+^=::Send, ^!+=
+^-::Send, ^!+-
 #If
 
 #IfWinActive ahk_exe Discord.exe
