@@ -104,6 +104,23 @@ TrayTip, % programTitle, Loaded
     Send, % dateString
     return
 
+#^v::
+    Input chordKey, L1 M T1
+    if chordKey = g ; "github"
+    {
+
+        Send, #``
+        WinWaitActive, ahk_exe WindowsTerminal.exe
+        Send, {Escape}togh{Space}
+        Send, ^v
+        Sleep, 500
+        Send, {Enter}
+        Send, #``
+        WinWaitNotActive, ahk_exe WindowsTerminal.exe
+        Send, ^v
+    }
+    return
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Programs
 
