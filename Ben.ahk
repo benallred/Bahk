@@ -70,6 +70,8 @@ TrayTip, % programTitle, Loaded
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General Shortcuts
 
+#h::return
+
 #d::
     Input chordKey, L1 M T1
     if chordKey = f ; "file"
