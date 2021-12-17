@@ -1,4 +1,4 @@
-$#a::
+$#f::
     autofills := LoadAutofills()
     if (autofills.Count() = 0)
     {
