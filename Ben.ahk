@@ -159,3 +159,12 @@ XButton1::!Left
     MouseMove, %savedX%, %savedY%, 0
     return
 #If
+
+#IfWinActive ahk_exe msedge.exe
+^,::
+    ; Sidebar must be turned off for these tab counts
+    Send, !+t+{Tab 2}
+    Sleep, 100
+    Send, {Home}{Right}{Space}+{F6}
+    return
+#If
