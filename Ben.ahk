@@ -167,4 +167,27 @@ XButton1::!Left
     Sleep, 100
     Send, {Home}{Right}{Space}+{F6}
     return
+
+$^1::
+$^2::
+$^3::
+$^4::
+$^5::
+    item := SubStr(A_ThisHotkey, 0) - 1
+    WinGetPos, , , clientW, clientH
+    if (clientW == 433 and clientH == 658)
+    {
+        CoordMode, Mouse, Screen
+        MouseGetPos, savedX, savedY
+        CoordMode, Mouse, Client
+        itemY := 80 + 45 * item
+        Click, 290, %itemY%
+        CoordMode, Mouse, Screen
+        MouseMove, %savedX%, %savedY%, 0
+    }
+    else
+    {
+        Send, % StrReplace(A_ThisHotkey, "$", "")
+    }
+    return
 #If
