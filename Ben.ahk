@@ -135,6 +135,24 @@ TrayTip, % programTitle, Loaded
 ^-::Send, ^!+-
 #If
 
+#IfWinActive ahk_exe winword.exe
+!Up::!+Up
+!Down::!+Down
+^+k::Send, {End}+{Home}{Delete}
+^=::
+    Send, !wq
+    WinWait, Zoom
+    Send, !e{Up 10}{Enter}
+    return
+^-::
+    Send, !wq
+    WinWait, Zoom
+    Send, !e{Down 10}{Enter}
+    return
+^Numpad0::Send, !wj
+^.::Send, !hu{Right}{Enter}{Esc}
+#If
+
 #IfWinActive ahk_exe Discord.exe
 !F4::WinClose
 #If
