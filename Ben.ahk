@@ -120,7 +120,7 @@ TrayTip, % programTitle, Loaded
 ^c::
     CoordMode, Mouse, Client
     MouseGetPos, savedX, savedY
-    Click, 350, 500
+    Click, 350, 528
     MouseMove, %savedX%, %savedY%, 0
     return
 #If
