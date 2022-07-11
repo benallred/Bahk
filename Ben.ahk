@@ -195,12 +195,10 @@ $^5::
     WinGetPos, , , clientW, clientH
     if (clientW == 433 and clientH == 658)
     {
-        CoordMode, Mouse, Screen
-        MouseGetPos, savedX, savedY
+        itemY := 135 + 45 * item
         CoordMode, Mouse, Client
-        itemY := 80 + 45 * item
-        Click, 290, %itemY%
-        CoordMode, Mouse, Screen
+        MouseGetPos, savedX, savedY
+        Click, 280, %itemY%
         MouseMove, %savedX%, %savedY%, 0
     }
     else
