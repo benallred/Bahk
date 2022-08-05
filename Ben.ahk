@@ -14,6 +14,9 @@ GroupAdd, CtrlShiftZ, OneNote
 GroupAdd, CtrlShiftZ, ahk_exe excel.exe
 GroupAdd, CtrlShiftZ, ahk_exe WindowsTerminal.exe
 
+GroupAdd, NoEmoji, ahk_exe slack.exe
+GroupAdd, NoEmoji, ahk_exe Discord.exe
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Script Startup
 
@@ -35,6 +38,7 @@ TrayTip, % programTitle, Loaded
 #Include Modules\Autofill.ahk
 #Include Modules\CopyPaste.ahk
 #Include Modules\Guid.ahk
+#Include Modules\Emoji.ahk
 #Include Modules\WindowManipulation.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
