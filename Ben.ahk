@@ -131,8 +131,15 @@ TrayTip, % programTitle, Loaded
 ^+PgUp::Send, ^+a!+{Up}{Esc}
 ^+PgDn::Send, ^+a!+{Down}{Esc}
 ^+k::Send, {Home}+{End}+{Right}{Delete}
-^=::Send, ^!+=
-^-::Send, ^!+-
+^=::^!+=
+^-::^!+-
+!+Down::
+    clipboardOrig := ClipboardAll
+    Send, {Esc}^a^c{Home}^v
+    Sleep, 500 ; clipboardOrig can be copied back before ^v happens
+    Clipboard := clipboardOrig
+    clipboardOrig = ; free memory in case clipboard was large
+    return
 #If
 
 #IfWinActive ahk_exe winword.exe
