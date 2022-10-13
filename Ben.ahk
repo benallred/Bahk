@@ -11,6 +11,7 @@ programTitle = Bahk
 EnvGet, LocalAppData, LocalAppData
 
 GroupAdd, CtrlShiftZ, OneNote
+GroupAdd, CtrlShiftZ, ahk_exe winword.exe
 GroupAdd, CtrlShiftZ, ahk_exe excel.exe
 GroupAdd, CtrlShiftZ, ahk_exe WindowsTerminal.exe
 
