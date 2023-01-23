@@ -130,6 +130,11 @@ TrayTip, % programTitle, Loaded
     return
 #If
 
+#IfWinActive ahk_exe outlook.exe
+!Up::!+Up
+!Down::!+Down
+#If
+
 #IfWinActive OneNote
 !Up::!+Up
 !Down::!+Down
