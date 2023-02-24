@@ -52,7 +52,7 @@ TrayTip, % programTitle, Loaded
     Sleep, 1000
     SoundPlay, *16
     TrayTip, % programTitle, Failed to reload, , 16
-    return
+return
 
 #^+s::
     Suspend, Toggle
@@ -66,12 +66,12 @@ TrayTip, % programTitle, Loaded
         Menu, Tray, Icon, Bahk.ico, , 1
         TrayTip, % programTitle, Resumed
     }
-    return
+return
 
 #^+h::
     SplitPath, A_AhkPath, , ahkLocation
     Run, "%ahkLocation%\AutoHotkey.chm"
-    return
+return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General Shortcuts
@@ -110,7 +110,7 @@ TrayTip, % programTitle, Loaded
         FormatTime, dateString, %date%, yyyy-MM-dd, dddd
     }
     Send, % dateString
-    return
+return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Programs
@@ -118,109 +118,109 @@ TrayTip, % programTitle, Loaded
 #m::Run, "%LocalAppData%\authy\Authy Desktop.exe"
 
 #IfWinActive ahk_group CtrlShiftZ
-^+z::Send, ^y
+    ^+z::Send, ^y
 #If
 
 #IfWinActive ahk_exe Authy Desktop.exe
-^c::
-    CoordMode, Mouse, Client
-    MouseGetPos, savedX, savedY
-    Click, 350, 528
-    MouseMove, %savedX%, %savedY%, 0
+    ^c::
+        CoordMode, Mouse, Client
+        MouseGetPos, savedX, savedY
+        Click, 350, 528
+        MouseMove, %savedX%, %savedY%, 0
     return
 #If
 
 #IfWinActive ahk_exe outlook.exe
-!Up::!+Up
-!Down::!+Down
+    !Up::!+Up
+    !Down::!+Down
 #If
 
 #IfWinActive OneNote
-!Up::!+Up
-!Down::!+Down
-^+PgUp::Send, ^+a!+{Up}{Esc}
-^+PgDn::Send, ^+a!+{Down}{Esc}
-^+k::Send, {Home}+{End}+{Right}{Delete}
-^=::^!+=
-^-::^!+-
-!+Down::
-    clipboardOrig := ClipboardAll
-    Send, {Esc}^a^c{Home}^v
-    Sleep, 500 ; clipboardOrig can be copied back before ^v happens
-    Clipboard := clipboardOrig
-    clipboardOrig = ; free memory in case clipboard was large
+    !Up::!+Up
+    !Down::!+Down
+    ^+PgUp::Send, ^+a!+{Up}{Esc}
+    ^+PgDn::Send, ^+a!+{Down}{Esc}
+    ^+k::Send, {Home}+{End}+{Right}{Delete}
+    ^=::^!+=
+    ^-::^!+-
+    !+Down::
+        clipboardOrig := ClipboardAll
+        Send, {Esc}^a^c{Home}^v
+        Sleep, 500 ; clipboardOrig can be copied back before ^v happens
+        Clipboard := clipboardOrig
+        clipboardOrig = ; free memory in case clipboard was large
     return
 #If
 
 #IfWinActive ahk_exe winword.exe
-!Up::!+Up
-!Down::!+Down
-^+k::Send, {End}+{Home}{Delete}
-^=::
-    Send, !wq
-    WinWait, Zoom
-    Send, !e{Up 10}{Enter}
+    !Up::!+Up
+    !Down::!+Down
+    ^+k::Send, {End}+{Home}{Delete}
+    ^=::
+        Send, !wq
+        WinWait, Zoom
+        Send, !e{Up 10}{Enter}
     return
-^-::
-    Send, !wq
-    WinWait, Zoom
-    Send, !e{Down 10}{Enter}
+    ^-::
+        Send, !wq
+        WinWait, Zoom
+        Send, !e{Down 10}{Enter}
     return
-^Numpad0::Send, !wj
-^.::Send, !hu{Right}{Enter}{Esc}
+    ^Numpad0::Send, !wj
+    ^.::Send, !hu{Right}{Enter}{Esc}
 #If
 
 #IfWinActive ahk_exe Discord.exe
-!F4::WinClose
+    !F4::WinClose
 #If
 
 #IfWinActive Microsoft Store
-XButton1::!Left
+    XButton1::!Left
 #If
 
 #IfWinActive ahk_exe Teams.exe
-!Left::
-    CoordMode, Mouse, Client
-    MouseGetPos, savedX, savedY
-    MouseMove, 0, 0, 0
-    Send, {XButton1}
-    MouseMove, %savedX%, %savedY%, 0
+    !Left::
+        CoordMode, Mouse, Client
+        MouseGetPos, savedX, savedY
+        MouseMove, 0, 0, 0
+        Send, {XButton1}
+        MouseMove, %savedX%, %savedY%, 0
     return
-!Right::
-    CoordMode, Mouse, Client
-    MouseGetPos, savedX, savedY
-    MouseMove, 0, 0, 0
-    Send, {XButton2}
-    MouseMove, %savedX%, %savedY%, 0
+    !Right::
+        CoordMode, Mouse, Client
+        MouseGetPos, savedX, savedY
+        MouseMove, 0, 0, 0
+        Send, {XButton2}
+        MouseMove, %savedX%, %savedY%, 0
     return
 #If
 
 #IfWinActive ahk_exe msedge.exe
-^,::
-    ; Sidebar must be turned off for these tab counts
-    Send, !+t+{Tab 2}
-    Sleep, 100
-    Send, {Home}{Right}{Space}+{F6}
+    ^,::
+        ; Sidebar must be turned off for these tab counts
+        Send, !+t+{Tab 2}
+        Sleep, 100
+        Send, {Home}{Right}{Space}+{F6}
     return
 
-$^1::
-$^2::
-$^3::
-$^4::
-$^5::
-    item := SubStr(A_ThisHotkey, 0) - 1
-    WinGetPos, , , clientW, clientH
-    if (clientW == 433 and clientH == 658)
-    {
-        itemY := 140 + 53 * item
-        CoordMode, Mouse, Client
-        MouseGetPos, savedX, savedY
-        Click, 272, %itemY%
-        MouseMove, %savedX%, %savedY%, 0
-    }
-    else
-    {
-        Send, % StrReplace(A_ThisHotkey, "$", "")
-    }
+    $^1::
+    $^2::
+    $^3::
+    $^4::
+    $^5::
+        item := SubStr(A_ThisHotkey, 0) - 1
+        WinGetPos, , , clientW, clientH
+        if (clientW == 433 and clientH == 658)
+        {
+            itemY := 140 + 53 * item
+            CoordMode, Mouse, Client
+            MouseGetPos, savedX, savedY
+            Click, 272, %itemY%
+            MouseMove, %savedX%, %savedY%, 0
+        }
+        else
+        {
+            Send, % StrReplace(A_ThisHotkey, "$", "")
+        }
     return
 #If
