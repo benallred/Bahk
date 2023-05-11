@@ -117,17 +117,37 @@ return
 
 #m::Run, "%LocalAppData%\authy\Authy Desktop.exe"
 
-#IfWinActive ahk_group CtrlShiftZ
-    ^+z::Send, ^y
-#If
-
 #IfWinActive ahk_exe Authy Desktop.exe
+    $^1::
+    $^2::
+    $^3::
+    $^4::
+    $^5::
+        item := SubStr(A_ThisHotkey, 0) - 1
+        itemY := 115 + 74 * item
+        CoordMode, Mouse, Client
+        MouseGetPos, savedX, savedY
+        Click, 40, %itemY%
+        MouseMove, %savedX%, %savedY%, 0
+    return
+
+    Esc::
+        CoordMode, Mouse, Client
+        MouseGetPos, savedX, savedY
+        Click, 33, 56
+        MouseMove, %savedX%, %savedY%, 0
+    return
+
     ^c::
         CoordMode, Mouse, Client
         MouseGetPos, savedX, savedY
         Click, 350, 528
         MouseMove, %savedX%, %savedY%, 0
     return
+#If
+
+#IfWinActive ahk_group CtrlShiftZ
+    ^+z::Send, ^y
 #If
 
 #IfWinActive ahk_exe outlook.exe
