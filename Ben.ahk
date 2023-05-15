@@ -96,6 +96,10 @@ return
     {
         FormatTime, dateString, %A_Now%, yyyy-MM-dd HH:mm:ss
     }
+    else if chordKey = i ; "ISO 8601"
+    {
+        FormatTime, dateString, %A_NowUTC%, yyyy-MM-ddTHH:mm:ssZ
+    }
     else
     {
         date = %A_Now%
