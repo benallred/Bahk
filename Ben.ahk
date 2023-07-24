@@ -202,6 +202,10 @@ return
     XButton1::!Left
 #If
 
+#IfWinActive, ahk_exe slack.exe
+    ^p::^k
+#If
+
 #IfWinActive ahk_exe Teams.exe
     !Left::
         CoordMode, Mouse, Client
