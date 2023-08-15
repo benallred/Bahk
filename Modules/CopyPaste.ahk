@@ -7,6 +7,7 @@
     return
 #If
 
+#IfWinNotActive ahk_exe WindowsTerminal.exe
 ^+v::
     clipboardOrig := ClipboardAll
     Clipboard := Trim(Clipboard)
@@ -15,6 +16,7 @@
     Clipboard := clipboardOrig
     clipboardOrig = ; free memory in case clipboard was large
     return
+#If
 
 ^!0::
 ^!1::
