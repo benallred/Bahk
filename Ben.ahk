@@ -154,7 +154,7 @@ return
     ^+z::Send, ^y
 #If
 
-#IfWinActive ahk_exe outlook.exe
+#IfWinActive - Message (HTML) ahk_exe outlook.exe
     !Up::!+Up
     !Down::!+Down
 #If
