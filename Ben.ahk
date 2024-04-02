@@ -256,3 +256,28 @@ return
         }
     return
 #If
+
+; Win 11 taskbar fix
+#1::
+#2::
+#3::
+#4::
+#5::
+#6::
+#7::
+#8::
+#9::
+#0::
+    numberKey := SubStr(A_ThisHotkey, 0)
+    KeyWait, %numberKey%
+    if GetKeyState("LWin", "P")
+    {
+        Send, {Blind}%numberKey%
+    }
+    else
+    {
+        Send, {LWin down}%numberKey%
+        Sleep, 150
+        Send, {LWin up}
+    }
+    return
