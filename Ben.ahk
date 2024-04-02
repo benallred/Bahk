@@ -223,6 +223,10 @@ return
     return
 #If
 
+#IfWinActive ahk_class ZPZoomToastNotifierWnd
+    MButton::WinClose, A
+#If
+
 #IfWinActive ahk_exe msedge.exe
     ^,::
         ; Sidebar must be turned off for these tab counts
