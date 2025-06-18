@@ -205,6 +205,11 @@ return
 #IfWinActive, ahk_exe slack.exe
     ^p::^k
     ^b::^+d
+    ^l::
+        Send, +{F10}{Up}{Right}{Down}
+        Sleep, 1000
+        Send, {Enter}
+    return
 #If
 
 #IfWinActive ahk_exe Teams.exe
