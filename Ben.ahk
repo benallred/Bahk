@@ -204,6 +204,7 @@ return
 
 #IfWinActive, ahk_exe slack.exe
     ^p::^k
+    ^b::^+d
 #If
 
 #IfWinActive ahk_exe Teams.exe
