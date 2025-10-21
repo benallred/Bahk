@@ -175,9 +175,13 @@ return
     ^p::^k
     ^b::^+d
     ^l::
+        CoordMode, Mouse, Client
+        MouseGetPos, savedX, savedY
+        MouseMove, 0, 0, 0
         Send, +{F10}{Up}{Right}{Down}
         Sleep, 1000
         Send, {Enter}
+        MouseMove, %savedX%, %savedY%, 0
     return
 #If
 
