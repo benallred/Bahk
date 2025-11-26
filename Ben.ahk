@@ -77,6 +77,7 @@ return
 ;; General Shortcuts
 
 #h::return
+#r::return
 
 #d::
     Input chordKey, L1 M T1
