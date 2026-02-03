@@ -179,7 +179,7 @@ return
         CoordMode, Mouse, Client
         MouseGetPos, savedX, savedY
         MouseMove, 0, 0, 0
-        Send, +{F10}{Up 5}
+        Send, +{F10}{Down 7}
         Sleep, 1000
         Send, {Enter}
         MouseMove, %savedX%, %savedY%, 0
