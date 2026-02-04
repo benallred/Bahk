@@ -1,4 +1,4 @@
-#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases
+﻿#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases
 #Warn ; Enable every type of warning; show each warning in a message box
 #SingleInstance Ignore ; Skips the dialog box and leaves the old instance running
 SendMode Input ; Recommended for new scripts due to its superior speed and reliability
@@ -36,10 +36,12 @@ IfNotExist, % startupLinkFile
 Menu, Tray, Icon, Bahk.ico, , 1
 TrayTip, % programTitle, Loaded
 
+#Include Modules\RatioResizeVars.ahk
 #Include Modules\Autofill.ahk
 #Include Modules\CopyPaste.ahk
 #Include Modules\Guid.ahk
 #Include Modules\Emoji.ahk
+#Include Modules\RatioResize.ahk
 #Include Modules\WindowManipulation.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
